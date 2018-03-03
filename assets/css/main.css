@@ -89,7 +89,9 @@ a {
     border: 0;
     margin-bottom: 30px;
 }
-
+.error {
+    color: red;
+}
 @media (min-width: 320px) and (max-width: 480px) {
     .upper-container img {
         width: 200px;

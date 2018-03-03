@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bastianos > Login</title>
     <link rel="stylesheet" href="./assets/css/main.css">
+    <script>
+        function openLogin() {
+            if (window.name != 'hotspot_logout') return true;
+            open('$(link-login)', '_blank', '');
+            window.close();
+            return false;
+        }
+    </script>
 </head>
+
 <body>
 
     <div class="upper-container">
@@ -18,6 +28,8 @@
             <div class="inner-box">
                 <p>Anda baru saja logout</p>
                 <!-- <hr class="separator" /> -->
+                
+                <form action="$(link-login)" name="logout" onSubmit="return openLogin()">
                 <table class="info-table">
                     <tr>
                         <td>Username</td>
@@ -41,9 +53,11 @@
                     </tr>
                 </table>
                 <input type="submit" class="input-btn" value="LOGIN" name="login">
+                </form>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>

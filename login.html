@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,26 @@
     <title>Bastianos > Login</title>
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
+
 <body>
+
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script type="text/javascript" src="./md5.js"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+    </script> $(endif)
 
     <div class="upper-container">
         <img src="./assets/img/logo.png" />
@@ -17,14 +37,22 @@
         <div class="outer-box" style="max-width: 300px;">
             <div class="inner-box">
                 <p>Dapatkan Username dan Password dengan memesan minimal 1 menu</p>
-                <form action="#">
-                    <input type="text" name="username" class="input-text" placeholder="USERNAME">
+                <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onsubmit="return doLogin()" $(endif)>
+                    <input type="hidden" name="dst" value="$(link-orig)">
+                    <input type="hidden" name="popup" value="true">
+                    <input type="text" name="username" class="input-text" placeholder="USERNAME" value="$(username)">
                     <input type="password" name="password" class="input-text" placeholder="PASSWORD">
-                    <input type="submit" name="login" class="input-btn" value="LOGIN">
+                    <input type="submit" name="login" class="input-btn" value="LOGIN"> <br />
+                    $(if error)<p class="error">$(error)</p>$(endif)
                 </form>
             </div>
         </div>
     </div>
 
+    <script>
+        document.login.username.focus();
+    </script>
+
 </body>
+
 </html>

@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)" /> $(endif)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bastianos > Status</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/main.css"> $(if advert-pending == 'yes')
+    <script>
+        var popup = '';
+        function focusAdvert() {
+            if (window.focus) popup.focus();
+        }
+        function openAdvert() {
+            popup = open('$(link-advert)', 'hotspot_advert', '');
+            setTimeout("focusAdvert()", 1000);
+        }
+    </script> $(endif)
+    <script>
+        function openLogout() {
+            if (window.name != 'hotspot_status') return true;
+            open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+            window.close();
+            return false;
+        }
+    </script>
 </head>
-<body>
+
+<body $(if advert-pending=='yes' ) onLoad="openAdvert()" $(endif)>
 
     <div class="upper-container">
         <img src="./assets/img/logo.png" />
@@ -16,7 +38,10 @@
     <div class="center-container">
         <div class="outer-box">
             <div class="inner-box">
-                <p>Selamat Datang `username`!</p>
+                <p>
+                    $(if login-by == 'trial') Selamat datang `trial`! $(elif login-by != 'mac') Selamat datang $(username)! $(endif)
+                </p>
+                <form action="$(link-logout)" name="logout" onsubmit="return openLogout()">
                 <!-- <hr class="separator" /> -->
                 <table class="info-table">
                     <tr>
@@ -27,27 +52,38 @@
                         <td>Bytes up/down</td>
                         <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
                     </tr>
+                    $(if session-time-left)
                     <tr>
                         <td>Waktu terhubung/Sisa waktu</td>
                         <td>$(uptime) / $(session-time-left)</td>
                     </tr>
+                    $(else)
                     <tr>
                         <td>Waktu terhubung</td>
                         <td>$(uptime)</td>
                     </tr>
+                    $(endif)
+                    $(if blocked == 'yes')
                     <tr>
                         <td>Status</td>
-                        <td><a href="$(link-advert)" target="hotspot_advert">Iklan</a> dibutuhkan</td>
+                        <td>
+                            <a href="$(link-advert)" target="hotspot_advert">Iklan</a> dibutuhkan</td>
                     </tr>
+                    $(elif refresh-timeout)
                     <tr>
                         <td>Status refresh</td>
                         <td>$(refresh-timeout)</td>
                     </tr>
+                    $(endif)
                 </table>
+                $(if login-by-mac != 'yes')
                 <input type="submit" class="input-btn" value="LOGOUT" name="logout">
+                $(endif)
+                </form>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>
