@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bastianos > Status</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+
+    <div class="upper-container">
+        <img src="./assets/img/logo.png" />
+    </div>
+
+    <div class="center-container">
+        <div class="outer-box">
+            <div class="inner-box">
+                <p>Selamat Datang `username`!</p>
+                <!-- <hr class="separator" /> -->
+                <table class="info-table">
+                    <tr>
+                        <td>IP Address</td>
+                        <td>$(ip)</td>
+                    </tr>
+                    <tr>
+                        <td>Bytes up/down</td>
+                        <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+                    </tr>
+                    <tr>
+                        <td>Waktu terhubung/Sisa waktu</td>
+                        <td>$(uptime) / $(session-time-left)</td>
+                    </tr>
+                    <tr>
+                        <td>Waktu terhubung</td>
+                        <td>$(uptime)</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td><a href="$(link-advert)" target="hotspot_advert">Iklan</a> dibutuhkan</td>
+                    </tr>
+                    <tr>
+                        <td>Status refresh</td>
+                        <td>$(refresh-timeout)</td>
+                    </tr>
+                </table>
+                <input type="submit" class="input-btn" value="LOGOUT" name="logout">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

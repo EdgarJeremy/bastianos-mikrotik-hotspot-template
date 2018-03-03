@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+}
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+.upper-container {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.upper-container img {
+    width: 300px;
+    padding: 20px 0;
+    display: inline-block;
+}
+.center-container {
+    font-family: 'Open Sans';
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #6a4628;
+}
+.outer-box {
+    background-color: rgba(255,255,255,.4);
+    margin: 0 auto;
+    /* width: 300px; */
+    display: inline-block;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.inner-box {
+    border: 1px solid rgba(255,255,255, 0);
+}
+.input-text {
+    padding: 15px 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #6a4628;
+}
+.input-btn {
+    margin-top: 50px;
+    padding: 20px;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    border-radius: 10px;
+    width: 100px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    color: #6a4628;
+}
+
+.info-table {
+    font-weight: bold;
+    border-collapse: collapse;
+    font-size: 13px;
+    background-color: #ffffff;
+}
+.info-table tr td {
+    border: 1px solid #6a4628;
+    padding: 10px;
+}
+.info-table tr td:nth-child(1) {
+    text-align: right;
+}
+.info-table tr td:nth-child(2) {
+    text-align: left;
+}
+.info-table tr:nth-child(1) td:nth-child(1) {
+    border-top-left-radius: 10px;
+}
+.separator {
+    background-color: #6a4628;
+    height: 1px;
+    border: 0;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .upper-container img {
+        width: 200px;
+    }
+    .center-container {
+        font-size: 10px;
+    }
+    .input-text {
+        font-size: 10px;
+    }
+    .input-btn {
+        margin-top: 0;
+        font-size: 10px;
+    }
+    .info-table tr td {
+        padding: 0;
+        font-size: 10px;
+        padding: 5px;
+    }
+    .info-table {
+        margin-bottom: 20px;
+    }
+}
