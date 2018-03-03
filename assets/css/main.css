@@ -66,9 +66,11 @@ a {
 
 .info-table {
     font-weight: bold;
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     font-size: 13px;
     background-color: #ffffff;
+    border: 1px solid #6a4628;
+    border-radius: 10px;
 }
 .info-table tr td {
     border: 1px solid #6a4628;
@@ -82,6 +84,15 @@ a {
 }
 .info-table tr:nth-child(1) td:nth-child(1) {
     border-top-left-radius: 10px;
+}
+.info-table tr:nth-child(1) td:nth-child(2) {
+    border-top-right-radius: 10px;
+}
+.info-table tr:last-child td:nth-child(1) {
+    border-bottom-left-radius: 10px;
+}
+.info-table tr:last-child td:nth-child(2) {
+    border-bottom-right-radius: 10px;
 }
 .separator {
     background-color: #6a4628;
